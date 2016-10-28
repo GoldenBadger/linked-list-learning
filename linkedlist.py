@@ -8,7 +8,13 @@ class Node:
 
     @classmethod
     def from_list(cls, other_list):
-        """TODO: Create a linked list from a standard python list."""
+        """Creates a linkedlist from a supplied list, returns the head of this list"""
+        head = cls(other_list[0])
+        tmp = head
+        for i in other_list[1:]:
+            tmp.next_node = cls(i)
+            tmp = tmp.next_node   
+        return head        
 
     @property
     def value(self):
@@ -29,4 +35,13 @@ class Node:
         self._next_node = new_next_node
 
     def print(self):
-        """TODO: Print the entire list to standard output."""
+        """Returns the linkedlist as a string"""
+        tmp = self   
+        returnList = []
+        while tmp is not None:
+               returnList.append(tmp.value)
+               tmp = tmp.next_node
+        return str(returnList)
+            
+            
+            
